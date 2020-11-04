@@ -1,52 +1,44 @@
-# Multi User Todo With Undo/Redo
+# Multi User Todo with Undo/Redo
 
-## About
+A todo app that syncs adding, deleting and filtering todos across
+multiple sessions with Undo and Redo functionality and is
+persistent to new connections.
 
-A todo app that syncs adding,deleting and filtering todos across multiple sessions with undo and redo functionality and is persistent to new connections.
-
-![logo](Undo.gif)
-
----
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine.
-
----
-
-## Prerequisites
-
-- Node.js
-- Free port 8000
-
----
+![Multi-User-Todo](public/images/Undo.gif)
 
 ## Instructions
 
-### 1. Clone this git repository
+1.  ### Clone the github repository
 
-```
-git clone https://github.com/syncstate/multi-user-todo-undo-redo-example.git
-```
-
-### 2. Install local npm dependencies
-
-```
-npm install
+```bash
+git clone git clone https://github.com/syncstate/multi-user-todo-undo-redo-example.git
 ```
 
-### 3. Run it
+2. ### Install local npm dependencies
 
+```bash
+npm start
 ```
+
+3. ### Run the server
+
+```bash
 cd server
 node index.js
 ```
 
-`Runs the server at port 8000 to establish socket connection with the client.`
+> Runs the server at port 8000 to establish socket connection with the client.
 
-```
-npm start/yarn start
+4. Run the App
+
+```bash
+# NPM
+npm start
+
+# Yarn
+yarn start
 ```
 
-`Runs the app in the development mode.`\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Runs the app in the development mode.
+
+Open <a href="http://localhost:3000" >http://localhost:3000</a> to view it in the browser.

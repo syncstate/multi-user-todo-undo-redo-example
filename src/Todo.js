@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { useDoc } from "@syncstate/react";
 function Todo(props) {
@@ -45,7 +45,15 @@ function Todo(props) {
           ></input>
         )}
 
-        {todoItem.caption}
+        <span
+          style={
+            todoItem.completed
+              ? { textDecoration: "line-through" }
+              : { textDecoration: "none" }
+          }
+        >
+          {todoItem.caption}
+        </span>
 
         <button
           onClick={() => {

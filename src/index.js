@@ -1,7 +1,7 @@
 import React from "react";
 import { createDocStore } from "@syncstate/core";
 import history from "@syncstate/history";
-import { Provider, useDoc } from "@syncstate/react";
+import { Provider } from "@syncstate/react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
 import "./index.css";

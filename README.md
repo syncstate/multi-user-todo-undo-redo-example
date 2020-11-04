@@ -29,7 +29,7 @@ node index.js
 
 > Runs the server at port 8000 to establish socket connection with the client.
 
-4. Run the App
+4. ### Run the App
 
 ```bash
 # NPM

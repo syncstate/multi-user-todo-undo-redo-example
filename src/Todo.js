@@ -25,7 +25,7 @@ function Todo(props) {
   };
 
   return (
-    <div className="App">
+    <div className="todo-list-item">
       <div>
         {todoItem.completed ? (
           <input
@@ -39,23 +39,24 @@ function Todo(props) {
           <input
             type="checkbox"
             onChange={(e) => {
-              console.log(e.target.checked);
               toggleTodo(e.target.checked);
             }}
           ></input>
         )}
-
-        <span
-          style={
-            todoItem.completed
-              ? { textDecoration: "line-through" }
-              : { textDecoration: "none" }
-          }
-        >
-          {todoItem.caption}
-        </span>
-
+      </div>
+      <div
+        style={
+          todoItem.completed
+            ? { textDecoration: "line-through" }
+            : { textDecoration: "none" }
+        }
+      >
+        {todoItem.caption}
+      </div>
+      <div>
         <button
+          type="button"
+          className="btn btn-primary"
           onClick={() => {
             deleteTodo(todoItem.id);
           }}

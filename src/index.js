@@ -14,27 +14,25 @@ const store = createDocStore({ todos: [] }, [
   remote.createInitializer(),
 ]);
 
+//enable remote plugin
 store.dispatch(remote.enableRemote("/todos"));
+
+//enabel history plugin
 store.dispatch(history.enable("/todos"));
 
 //setting up socket connection with the server
 var socket = io.connect("http://localhost:8000");
 
-socket.on("loaded", (path) => {
-  store.dispatch(remote.applyRemote(path, false));
-});
-
-// loading the app for the first time
+// send request to get patches every time page reloads
 socket.emit("fetchDoc", "/todos");
 
-//whenever there is some attempt to change the store state
+//observe changes on store
 store.observe(
   "doc",
   "/todos",
   (todos, change) => {
     if (!change.origin) {
       //send json patch to the server
-      //socket.emit("change", change.patch.path, change);
       socket.emit("change", "/todos", change);
     }
   },
@@ -43,7 +41,6 @@ store.observe(
 
 //get patches from server and dispatch
 socket.on("change", (path, patch) => {
-  // console.log(patch);
   store.dispatch(remote.applyRemote(path, patch));
 });
 

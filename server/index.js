@@ -3,6 +3,7 @@ var socket = require("socket.io");
 const { v4: uuidv4 } = require("uuid");
 const PatchManager = require("./PatchManager");
 const { SyncStateRemote } = require("@syncstate/remote-server");
+
 const remote = new SyncStateRemote();
 var app = express();
 var server = app.listen(8000, function () {
@@ -16,7 +17,7 @@ var patchManager = new PatchManager();
 
 io.on("connection", async (socket) => {
   socket.on("fetchDoc", (path) => {
-    //get all patches
+    //get all patches from storage
     const patchesList = patchManager.getAllPatches(projectId, path);
 
     if (patchesList) {
@@ -35,7 +36,7 @@ io.on("connection", async (socket) => {
     remote.processChange(socket.id, path, change);
   });
 
-  const dispose = remote.onChangeReady(socket.id, (path, change) => {
+  remote.onChangeReady(socket.id, (path, change) => {
     //store the patches in js runtime or a persistent storage
     patchManager.store(projectId, path, change);
 

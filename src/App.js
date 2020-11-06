@@ -26,45 +26,9 @@ function App() {
     return <Todo key={index} todoPath={todoPath + "/" + index} />;
   });
   return (
-    // <div className="App">
-    //   <h1>Multi-User Todo App With Redo/Undo</h1>
-    //   <form
-    //     onSubmit={(e) => {
-    //       e.preventDefault();
-    //       addTodo(input);
-    //       setInput("");
-    //     }}
-    //   >
-    //     <input
-    //       type="text"
-    //       className="input-todo"
-    //       placeholder="What's on your mind?"
-    //       onChange={(e) => {
-    //         setInput(e.target.value);
-    //       }}
-    //     ></input>
-    //     <input type="submit" value="Submit"></input>
-    //   </form>
-    //   {todoList}
-    //   <button
-    //     onClick={() => {
-    //       dispatch(history.undo());
-    //     }}
-    //   >
-    //     Undo
-    //   </button>
-    //   &nbsp;&nbsp;
-    //   <button
-    //     onClick={() => {
-    //       dispatch(history.redo());
-    //     }}
-    //   >
-    //     Redo
-    //   </button>
-    // </div>
     <div className="main-app">
       <div className="todo-app">
-        <h2>Multi User Todo App Undo/Redo</h2>
+        <h1>Multi User Todo With Undo/Redo</h1>
         <br></br>
         <form
           onSubmit={(e) => {
@@ -75,8 +39,8 @@ function App() {
         >
           <input
             type="text"
-            className="input-todo"
             placeholder="What's on your mind?"
+            className="input-todo"
             onChange={(e) => {
               setInput(e.target.value);
             }}
@@ -86,7 +50,7 @@ function App() {
         <br></br>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-danger"
           onClick={() => {
             dispatch(history.undo());
           }}
@@ -96,7 +60,7 @@ function App() {
         &nbsp;&nbsp;
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-danger"
           onClick={() => {
             dispatch(history.redo());
           }}

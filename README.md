@@ -11,13 +11,17 @@ persistent to new connections.
 1.  ### Clone the github repository
 
 ```bash
-git clone git clone https://github.com/syncstate/multi-user-todo-undo-redo-example.git
+git clone https://github.com/syncstate/multi-user-todo-undo-redo-example.git
 ```
 
-2. ### Install local npm dependencies
+2. ### Install local dependencies
 
 ```bash
-npm start
+# NPM
+npm install
+
+# Yarn
+yarn install
 ```
 
 3. ### Run the server

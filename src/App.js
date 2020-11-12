@@ -1,23 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import "./App.css";
+import Todo from "./Todo";
+import history from "@syncstate/history";
+import { useDoc } from "@syncstate/react";
 function App() {
+  const todoPath = "/todos";
+  const [todos, setTodos, dispatch] = useDoc(todoPath);
+  const [input, setInput] = useState("");
+
+  const keyGenerator = () => "_" + Math.random().toString(36).substr(2, 9);
+
+  const addTodo = (todoItem) => {
+    setTodos((todos) => {
+      let id = keyGenerator();
+      todos.push({
+        id: id,
+        caption: todoItem,
+        completed: false,
+      });
+      document.getElementsByClassName("input-todo")[0].value = "";
+    });
+  };
+
+  const todoList = todos.map((todo, index) => {
+    return <Todo key={index} todoPath={todoPath + "/" + index} />;
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="main-app">
+      <div className="todo-app">
+        <h1>Multi User Todo With Undo/Redo</h1>
+        <br></br>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            addTodo(input);
+            setInput("");
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <input
+            type="text"
+            placeholder="What's on your mind?"
+            className="input-todo"
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
+          ></input>
+        </form>
+        {todoList}
+        <br></br>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => {
+            dispatch(history.undo());
+          }}
+        >
+          Undo
+        </button>
+        &nbsp;&nbsp;
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => {
+            dispatch(history.redo());
+          }}
+        >
+          Redo
+        </button>
+      </div>
     </div>
   );
 }

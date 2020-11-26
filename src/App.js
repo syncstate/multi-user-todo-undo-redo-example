@@ -43,7 +43,7 @@ function App() {
                 <i className="fa fa-tasks"></i>&nbsp;Task Lists
                 <span className="ml-auto">
                   <button
-                    className="btn btn-primary"
+                    className="border-0 btn-transition btn btn-outline-danger"
                     onClick={(e) => {
                       dispatch(history.undo());
                     }}
@@ -51,7 +51,7 @@ function App() {
                     Undo
                   </button>
                   <button
-                    className="btn btn-primary ml-3"
+                    className="border-0 btn-transition btn btn-outline-danger ml-3"
                     onClick={(e) => {
                       dispatch(history.redo());
                     }}

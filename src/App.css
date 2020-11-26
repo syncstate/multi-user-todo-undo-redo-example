@@ -1,5 +1,5 @@
 body {
-  background-color: #6200ea;
+  background-color: #3f937b;
 }
 .App {
   text-align: center;
@@ -13,6 +13,22 @@ body {
 }
 .addText {
   width: 350px;
+}
+button {
+  background-color: #61b9a0 !important;
+  color: white !important;
+}
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+  border-color: #61b9a0 !important;
+}
+.input-todo:focus,
+.input-todo:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #61b9a0;
 }
 
 @media (max-width: 375px) {

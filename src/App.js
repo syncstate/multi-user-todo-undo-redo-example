@@ -9,6 +9,7 @@ function App() {
   const todoPath = "/todos";
   const [todos, setTodos, dispatch] = useDoc(todoPath);
 
+  //generate unique id
   const keyGenerator = () => "_" + Math.random().toString(36).substr(2, 9);
   const addTodo = (todoItem) => {
     setTodos((todos) => {

@@ -21,7 +21,7 @@ store.dispatch(remote.enableRemote("/todos"));
 store.dispatch(history.enable("/todos"));
 
 //setting up socket connection with the server
-var socket = io.connect("http://localhost:8000");
+let socket = io.connect("http://localhost:8000");
 
 // send request to get patches every time page reloads
 socket.emit("fetchDoc", "/todos");

@@ -1,9 +1,9 @@
 import React from "react";
 import { useDoc } from "@syncstate/react";
 
-function Todo({ todoPath }) {
+function TodoItem({ todoItemPath }) {
   const [todos, setTodos] = useDoc("/todos", Infinity);
-  const [todoItem, setTodoItem] = useDoc(todoPath);
+  const [todoItem, setTodoItem] = useDoc(todoItemPath);
 
   const deleteTodo = (id) => {
     let newTodos = todos.filter((todo) => {
@@ -62,4 +62,4 @@ function Todo({ todoPath }) {
   );
 }
 
-export default Todo;
+export default TodoItem;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import history from "@syncstate/history";
-import Todo from "./components/Todo";
+import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
 import { useDoc } from "@syncstate/react";
 
@@ -26,7 +26,7 @@ function App() {
   const todoList = todos.map((todoItem, index) => {
     return (
       <li key={todoItem.index} className="list-group-item">
-        <Todo todo={todoItem} todoPath={todoPath + "/" + index} />
+        <TodoItem todo={todoItem} todoItemPath={todoPath + "/" + index} />
       </li>
     );
   });

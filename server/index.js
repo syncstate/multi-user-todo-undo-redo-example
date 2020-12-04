@@ -1,19 +1,19 @@
-var express = require("express");
-var socket = require("socket.io");
+const express = require("express");
+const socket = require("socket.io");
 const { v4: uuidv4 } = require("uuid");
 const PatchManager = require("./PatchManager");
 const { SyncStateRemote } = require("@syncstate/remote-server");
 
 const remote = new SyncStateRemote();
-var app = express();
-var server = app.listen(8000, function () {
+const app = express();
+const server = app.listen(8000, function () {
   console.log("listening on port 8000");
 });
 
-var io = socket(server);
-var projectId = uuidv4();
+const io = socket(server);
+const projectId = uuidv4();
 
-var patchManager = new PatchManager();
+let patchManager = new PatchManager();
 
 io.on("connection", async (socket) => {
   socket.on("fetchDoc", (path) => {

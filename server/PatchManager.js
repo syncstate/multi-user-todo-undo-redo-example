@@ -5,7 +5,6 @@ module.exports = class PatchManager {
   }
 
   store(projectId, path, patch) {
-    // console.log("storing patch", patch, this.projectPatchesMap);
     const projectPatches = this.projectPatchesMap.get(projectId);
 
     if (projectPatches) {

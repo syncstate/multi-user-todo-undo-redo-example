@@ -4,7 +4,7 @@ A todo app that syncs adding, deleting and filtering todos across
 multiple sessions with Undo and Redo functionality and is
 persistent to new connections.
 
-![Multi-User-Todo](public/images/Todo-undo-redo.gif)
+![Multi-User-Todo](public/images/todo-undo-redo.gif)
 
 ## Instructions
 
